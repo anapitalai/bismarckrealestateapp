@@ -1,2 +1,9 @@
 a{cursor:pointer;}
-.profile{max-width:50px;}
+
+.profile{width:64px;
+ 
+}
+
+img{
+    max-width:64px;
+}

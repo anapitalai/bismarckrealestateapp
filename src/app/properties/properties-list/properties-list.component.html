@@ -1,20 +1,23 @@
 <div class="jumbotron text-center">
-  <h2>REALESTATE/STATIONERY APP</h2>
-  <small>Let the app get your accomodation in Lae.</small><br>
+  <h2>BISMARK SEA REAL ESTATE</h2><hr>
+  <h4>Valuing and Mantaining Your Asset is Our Passion.</h4><br>
   <button *ngIf='auth.isLoggedIn()' routerLink='/properties/create' class="btn btn-info">New Property Listing</button>
-  <button routerLink='/professionals' class="btn btn-danger">More Stationery</button>
+  <div class="words"><b>
+  Sales,Leasing, Valuation and Property Management.
+  </b>
+  </div>
 </div>
 
 <div *ngIf="teachers">
   <div *ngFor="let c of teachers" class="col-sm-4">
     <div class="thumbnail" [routerLink]="['/properties',c.id]">
-      <h2> {{ c.name }}</h2><small><i>{{c.description}}</i></small>
-      <h4>{{c.createdAt}}</h4>
+      <h2> {{ c.location }}</h2>
+      <h4>{{c.description}}</h4>
       <img [src]='c.listViewImage' class='img-responsive img-circle'>
-
-      <!--<div class="btn btn-info pull-right">Interested!Leave a Message</div>
-      <div class="btn btn-primary pull-right">More Details</div>-->
     </div>
-     <div class="btn btn-primary pull-right">Interested!Leave a Message</div>
+     <div class="btn btn-info pull-right" routerLink='/feedback/create'>Leave a Feedback</div>
+     <div class="btn btn-primary pull-left" routerLink='/feedback'>Show Prev Feedbacks</div>
+
   </div>
 </div>
+

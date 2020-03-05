@@ -14,13 +14,13 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Property } from './shared/models/property';
+import {PropertyService} from './shared/services/property.service';  
 import { User } from './shared/models/user';
-import { PropertyService } from './shared/services/property.service';
 import { AuthSlyService } from './shared/services/authsly.service';
 import { DashboardService } from './shared/services/dashboard.service';
 @Component({
   selector: 'app-root',
-  styles: [],
+  styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html'
 
 })

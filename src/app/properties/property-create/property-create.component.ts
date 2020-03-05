@@ -28,17 +28,21 @@ export class PropertyCreateComponent implements OnInit {
   }
 
   form: FormGroup;
-  teacher: Property = { name: '', description: '', avatarImage: '' };
+  teacher: Property = { location: '',price: '',status: '',type: '', description: '',avatarImage: '' };
   errorMessage: string = '';
   successMessage: string = '';
   filesToUpload: Array<File> = [];
 
   ngOnInit() {
-    this.form = new FormGroup({
-      name: new FormControl(''),
+     this.form = new FormGroup({
+      location: new FormControl(''),
+      price: new FormControl(''),
+      status:new FormControl(''),
+      type:new FormControl(''),
       description: new FormControl(''),
       avatarImage: new FormControl('')
     });
+    
   }
 
 
@@ -57,13 +61,15 @@ export class PropertyCreateComponent implements OnInit {
     const fd = new FormData();
 
     for (let i = 0; i < files.length; i++) {
-      fd.append("avatarImage", files[i], files[i]['name']);
+      fd.append("avatarImage", files[i], files[i]['location']);
     }
-    fd.append('name', this.form.value.name);
+    fd.append('location', this.form.value.location);
+    fd.append('price', this.form.value.type);
+    fd.append('status', this.form.value.status);
+    fd.append('type', this.form.value.type);
     fd.append('description', this.form.value.description);
 
 
-      //this.http.post('http://localhost:3007/teachers', fd)
       this.http.post(`${config.endPoint}/teachers`,fd)  
       .subscribe(res => {
         console.log(res);

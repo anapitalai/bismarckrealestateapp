@@ -13,10 +13,19 @@ export class PropertiesListComponent implements OnInit {
   constructor(private service: PropertyService,public auth:AuthSlyService) {}
 
   teachers:Property[];
+
   ngOnInit(): void {
-    this.service.getContacts()
-    .subscribe(teachers=>this.teachers=teachers);
+
+   this.service.getChannel().bind('new',data=>{
+     data.new=true;
+     this.teachers.push(data);
+   });
+
+      this.service.getContacts()
+     .subscribe(teachers=>this.teachers=teachers);
   }
+
+  
     
   
 }

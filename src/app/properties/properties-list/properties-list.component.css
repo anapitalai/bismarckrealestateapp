@@ -15,4 +15,9 @@
 
   }
 
-  .btn{cursor:pointer;}
+  .btn{cursor:pointer;
+  }
+
+  .words{
+    margin: 10px;
+  }

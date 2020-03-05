@@ -3,8 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  pusher:{
+    appId: '947043',
+    key: '6384e05eafa2609b7f1e',
+    secret: 'f2453bf8c62751ecc148',
+    cluster: 'ap4',
+    encrypted: true
+  }
+
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,8 +1,10 @@
 export class Property{  
     _id?: number;
-    name:string;
+    location:string;
+    price:string;
+    status:string;
+    type:string;
     description:string;
-    avatarImage:string;
-   
+    avatarImage:string;  
    }
    

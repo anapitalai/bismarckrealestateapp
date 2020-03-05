@@ -1,0 +1,13 @@
+<h1>Feedbacks</h1>
+
+<div *ngIf="feedbacks">
+    <div *ngFor="let c of feedbacks" class="col-sm-4">
+      <div class="thumbnail" [routerLink]="['/feedbacks',c.id]">
+        <h2> {{ c.name }}</h2>
+        <h3>{{c.contacts}}</h3>
+        <h4>{{c.message}}</h4>
+     
+      </div>
+       <div class="btn btn-info pull-right" routerLink='/feedback/create'>More Info</div>
+    </div>
+  </div>

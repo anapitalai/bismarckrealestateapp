@@ -1,33 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+declare const Pusher: any;
 
-import { Stationery } from '../models/stationery';
+import { Feedback } from '../models/feedback';
 import 'rxjs/add/operator/map';
 import { Observable,Subject } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import config from '../../../config/keys';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 
-export class StationeryService{
-    //private url:string='http://localhost:3007/professionals';
-    //private url='https://apis.raliku.com/professionals';
-    private url=`${config.endPoint}/professionals`;
+export class FeedbackService{
+
+    
+    private url=`${config.endPoint}/feedbacks`;
+    pusher: any;
+    channel: any;
     //observable source
     private deletedProfessionalSource=new Subject();
-    private createdProfessionalSource=new Subject<Stationery>();
+    private createdProfessionalSource=new Subject<Feedback>();
     //observable stream
     createdProfessional$=this.createdProfessionalSource.asObservable();
     deletedProfessional$=this.deletedProfessionalSource.asObservable();
     
-    constructor( private http: Http){}
+    constructor( private http: Http){
+
+    }
     
  //all contacts
-getProfessionals():Observable<Stationery[]>{
+getFeedbacks():Observable<Feedback[]>{
     return this.http.get(`${this.url}`)
-    .pipe(map(res=>res.json().professionals),
+    .pipe(map(res=>res.json().feedbacks),
     catchError(this.handleError));
 }
+
+
+
 private handleError(err){
     let errMessage:string;
     if(err instanceof Response){
@@ -42,24 +51,25 @@ private handleError(err){
 }
 
 //get single contact
-getProfessional(id):Observable<Stationery>{
+getFeedback(id):Observable<Feedback>{
  return this.http.get(`${this.url}/${id}`)
  .pipe(map(res=>res.json()),
  catchError(this.handleError));
 }
 
 //update user details
-updateProfessional(professional:Stationery):Observable<Stationery>{
+updateFeedback(professional:Feedback):Observable<Feedback>{
 return this.http.put(`${this.url}/${professional._id}`,professional)
 .pipe(map(teacher=>teacher.json()),
 catchError(this.handleError))
 }
 
 
-createProfessional(teacher:Stationery):Observable<Stationery>{
-    return this.http.post(this.url,teacher)
+//create endpoint
+createFeedback(feedback:Feedback):Observable<Feedback>{
+    return this.http.post(this.url,feedback)
     .pipe(map(res=>res.json()),
-    tap(teacher=>this.createdProfessional(teacher)),
+    tap(feedback=>this.createdProfessional(feedback)),
     catchError(this.handleError));
 }
 
@@ -71,8 +81,8 @@ deleteProfessional(id:number):Observable<any>{
 }
 
 //messages
-createdProfessional(teacher:Stationery){
-    console.log('New Stationery has been created!');
+createdProfessional(teacher:Feedback){
+    console.log('New Feedback has been created!');
     this.createdProfessionalSource.next(teacher);
 }
 

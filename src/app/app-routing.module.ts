@@ -11,6 +11,12 @@ import { DashboardListComponent } from './dashboard/dashboard-list/dashboard-lis
 import { DashboardCreateComponent } from './dashboard/dashboard-create/dashboard-create.component';
 import { DashboardSingleComponent } from './dashboard/dashboard-single/dashboard-single.component';
 import { DashboardEditComponent } from './dashboard/dashboard-edit/dashboard-edit.component';
+//feedback route
+import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackListComponent } from './feedback/feedback-list/feedback-list.component';
+import { FeedbackCreateComponent } from './feedback/feedback-create/feedback-create.component';
+import { FeedbackSingleComponent } from './feedback/feedback-single/feedback-single.component';
+import { FeedbackUpdateComponent } from './feedback/feedback-update/feedback-update.component';
 
 
 const routes: Routes = [
@@ -72,6 +78,34 @@ const routes: Routes = [
     {
         path:':id/edit',
         component:DashboardEditComponent
+    }
+
+
+    ]
+
+    
+},
+{
+    path:'feedback',
+    //canActivate:[AuthGuard],
+    component:FeedbackComponent,
+    children:[
+        {
+        path:'',
+        component:FeedbackListComponent
+    },
+    {
+        path:'create',
+        component:FeedbackCreateComponent
+    }
+    ,
+    {
+        path:':id',
+        component:FeedbackSingleComponent
+    },
+    {
+        path:':id/edit',
+        component:FeedbackUpdateComponent
     }
 
 
