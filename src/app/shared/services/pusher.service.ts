@@ -13,7 +13,7 @@ export class PusherService {
 
   constructor(private http: Http) {
     this._pusher = new Pusher(environment.pusher.key, {
-      cluster: environment.pusher.cluster,
+      //cluster: environment.pusher.cluster,
       encrypted: true
     });
 

@@ -1,7 +1,7 @@
 <div *ngIf="teachers">
     <div class="user-card text-center">
         <div class='text-center'>
-            <h2>{{ teachers.location}} <small>{{ teachers.description }}</small></h2>
+            <h2>{{ teachers.location}} <small>{{ teachers.price }}</small></h2>
         </div>
         <div class='text-center'>
             <h2>{{ teachers.status}} <small>{{ teachers.description }}</small></h2>
@@ -41,7 +41,7 @@
 
 
 
-        <div class="well well-lg">{{teachers.description}}</div>
+        <div class="well well-lg">{{teachers.price}}</div>
 
         <button *ngIf='auth.isLoggedIn()' [routerLink]="['/properties',teachers._id,'edit']"
             class="btn btn-primary btn-lg">Edit</button>
