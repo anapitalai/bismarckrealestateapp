@@ -1,3 +1,3 @@
 export default{
-    endPoint:"http://localhost:3000",
+    endPoint:"http://chervicontraining.com:3007",
 };
