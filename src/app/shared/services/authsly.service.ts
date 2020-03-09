@@ -4,13 +4,11 @@ import {AuthHttp,JwtHelper} from 'angular2-jwt';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import config from '../../../config/keys';
-//private authUrl=`${config.endPoint}/'users/login'`;
+
 
 @Injectable()
 
 export class AuthSlyService {
-    //private authUrl='http://localhost:3007/users/login';
-   //private authUrl='https://apis.raliku.com/users/login';
    private authUrl=`${config.endPoint}/users/login`;
     private loggedIn: boolean=false;
      private token = localStorage.getItem('token');

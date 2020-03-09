@@ -11,8 +11,7 @@ import config from '../../../config/keys';
 @Injectable()
 
 export class DashboardService{
-    //private url:string='http://localhost:3007/users';
-    //private url='https://apis.raliku.com.com/users';
+
     private url=`${config.endPoint}/users`;
     //observable source
     private userDeletedSource=new Subject();
