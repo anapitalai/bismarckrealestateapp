@@ -23,7 +23,7 @@
     "angular2-jwt": "^0.2.3",
     "bootstrap3": "^3.3.5",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "pusher-js": "^5.1.1",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.5.2",
